@@ -25,8 +25,13 @@ export function formatDuration(start) {
 export function relativeDate(value) {
     const date = moment(value);
 
+    // return value;
+    // return date.format("dddd, MMMM Do YYYY, h:mm:ss a");
+    // return date.toString();
+    // return date.format('HH:mm:ss');
+
     if (moment().isSame(date, 'd')) {
-        return 'Today';
+        return 'Today ' + date.toNow();
     }
 
     if (

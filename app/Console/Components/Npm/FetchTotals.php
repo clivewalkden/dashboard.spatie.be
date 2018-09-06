@@ -39,7 +39,19 @@ class FetchTotals extends Command
 
     private function getPackageList()
     {
-        $packages = json_decode(file_get_contents('https://spatie.be/en/api/packages'));
+//        $packages = json_decode(file_get_contents('https://spatie.be/en/api/packages'));
+
+        $data = [
+            'cw_hidereveal' => [
+                'name' => 'cw_hidereveal',
+                'type' => 'javascript',
+            ],
+            'generator-jquery-clivewalkden' => [
+                'name' => 'generator-jquery-clivewalkden',
+                'type' => 'javascript'
+            ]
+        ];
+        $packages = json_decode(json_encode($data), FALSE);
 
         return collect($packages)
             ->filter(function ($package) {

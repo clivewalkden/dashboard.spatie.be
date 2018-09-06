@@ -35,7 +35,7 @@ export default {
                 'seconds'
             );
 
-            this.offline = lastHeartBeatReceivedSecondsAgo > 125;
+            this.offline = lastHeartBeatReceivedSecondsAgo > 600;
         },
 
         getEventHandlers() {

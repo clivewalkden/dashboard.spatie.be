@@ -7,9 +7,9 @@
 <dashboard id="dashboard" columns="5" rows="12">
     <twitter :initial-tweets="{{ json_encode($initialTweets) }}" position="a1:a12"></twitter>
 
-    <packagist position="b1:b4"></packagist>
-    <npm position="b5:b8"></npm>
-    <github position="b9:b12"></github>
+    <packagist position="b1:b3"></packagist>
+    <npm position="b4:b6"></npm>
+    <github position="b7:b12"></github>
 
     <tasks team-member="clive" position="c5:c12"></tasks>
 
