@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class Mentioned extends DashboardEvent
 {
+    /** @var array */
     public $tweetProperties;
 
     public function __construct(array $tweetProperties)

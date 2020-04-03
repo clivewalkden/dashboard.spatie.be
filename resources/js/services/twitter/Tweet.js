@@ -37,10 +37,7 @@ class Tweet {
     }
 
     get hasQuote() {
-        return (
-            this.tweetProperties['is_quote_status'] &&
-            this.tweetProperties['quoted_status'] !== null
-        );
+        return this.tweetProperties['is_quote_status'] && this.tweetProperties['quoted_status'] !== null;
     }
 
     get quote() {
@@ -71,30 +68,24 @@ class Tweet {
         // http://stackoverflow.com/a/38383605/999733
         return twemoji
             .parse(this.text)
-            .replace(
-                /(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g,
-                '<span class="tweet__body__hashtag">$1</span>'
-            )
-            .replace(
-                /(@\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g,
-                '<span class="tweet__body__handle">$1</span>'
-            );
+            .replace(/(#\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g, '<span class="tweet__body__hashtag">$1</span>')
+            .replace(/(@\w*[0-9a-zA-Z]+\w*[0-9a-zA-Z])/g, '<span class="tweet__body__handle">$1</span>');
     }
 
     get displayClass() {
         if (this.text.length < 30) {
-            return 'large';
+            return 'text-lg';
         }
 
         if (this.text.length < 60) {
-            return 'medium';
+            return 'text-md';
         }
 
         if (this.text.length < 100) {
-            return 'default';
+            return 'text-base';
         }
 
-        return 'small';
+        return 'text-sm';
     }
 }
 

@@ -5,15 +5,15 @@ import Vue from 'vue';
 
 import Dashboard from './components/Dashboard';
 import Calendar from './components/Calendar';
-import Github from './components/Github';
+import Statistics from './components/Statistics';
 import InternetConnection from './components/InternetConnection';
-import Music from './components/Music';
-import Npm from './components/Npm';
-import Packagist from './components/Packagist';
-import Tasks from './components/Tasks';
+import TeamMember from './components/TeamMember';
 import TimeWeather from './components/TimeWeather';
+import Trains from './components/Trains';
 import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
+import Velo from './components/Velo';
+import TileTimer from './components/TileTimer';
 
 new Vue({
     el: '#dashboard',
@@ -21,31 +21,31 @@ new Vue({
     components: {
         Dashboard,
         Calendar,
-        Github,
+        Statistics,
         InternetConnection,
-        Music,
-        Npm,
-        Packagist,
-        Tasks,
+        TeamMember,
         TimeWeather,
+        Trains,
         Twitter,
         Uptime,
+        Velo,
+        TileTimer,
     },
 
     created() {
-        let options = {
+        let config = {
             broadcaster: 'pusher',
             key: window.dashboard.pusherKey,
-            cluster: window.dashboard.pusherCluster,
+            wsHost: window.location.hostname,
+            wsPath: window.dashboard.clientConnectionPath,
+            wsPort: window.dashboard.wsPort,
+            disableStats: true,
         };
 
-        if (window.dashboard.usingNodeServer) {
-            options = {
-                broadcaster: 'socket.io',
-                host: 'http://dashboard.spatie.be:6001',
-            };
+        if (window.dashboard.environment === 'local') {
+            config.wsPort = 6001;
         }
 
-        this.echo = new Echo(options);
+        this.echo = new Echo(config);
     },
 });

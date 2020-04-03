@@ -1,14 +1,15 @@
 <template>
-    <tile :position="position" modifiers="overflow">
-        <section class="calendar">
-            <h1 class="calendar__title">Upcoming</h1>
-            <ul class="calendar__events">
-                <li v-for="event in events" class="calendar__event">
-                    <h2 class="calendar__event__title">{{ event.name }}</h2>
-                    <div class="calendar__event__date">{{ relativeDate(event.date) }}</div>
+    <tile :position="position">
+        <div class="grid gap-padding h-full markup">
+            <ul class="align-self-center">
+                <li v-for="event in events">
+                    <div class="my-2">
+                        <div :class="{ 'font-bold': withinWeek(event.date) }">{{ event.name }}</div>
+                        <div class="text-sm text-dimmed">{{ relativeDate(event.date) }}</div>
+                    </div>
                 </li>
             </ul>
-        </section>
+        </div>
     </tile>
 </template>
 
@@ -16,7 +17,7 @@
 import echo from '../mixins/echo';
 import Tile from './atoms/Tile';
 import saveState from 'vue-save-state';
-import { relativeDate } from '../helpers';
+import { relativeDate, withinWeek } from '../helpers';
 
 export default {
     components: {
@@ -35,6 +36,7 @@ export default {
 
     methods: {
         relativeDate,
+        withinWeek,
 
         getEventHandlers() {
             return {
