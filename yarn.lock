@@ -7143,10 +7143,10 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-stringz@^0.2.1:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/stringz/-/stringz-0.2.3.tgz#87bad6f5462c34bd73f84522c703f019d78f0b2d"
-  integrity sha512-gnFfTRY0qLomwMwgmcEQ0r8XinHvBEp9jkTjrooUA1LRXX3U0Zi+TTpFYxz8jq/5UuWLdJ3T1BTbFZRPBB/vZA==
+stringz@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/stringz/-/stringz-0.4.0.tgz#6e0543788f1076c2babc498ec5acd320e3601ac9"
+  integrity sha512-g4/wJlLo0qRUiEtc9TDst1RulMW6hsiTKwXxpcVNoc7E5P21i9vBti6oBrV9Tzk/P+5doxCULZVqgoocgHcRKQ==
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
